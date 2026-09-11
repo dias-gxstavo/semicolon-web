@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11111b">
+  <title>semicolon — markdown notes</title>
+  <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/marked.umd.js"></script>
+  <script defer src="vendor/purify.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <aside class="sidebar" aria-label="Note explorer">
+    <header class="explorer-header"><span><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3  7V4h6l2 3h10l-3 13H3V7Zm0 3h17" />
+        </svg> EXPLORER</span><button id="new-note" class="primary small" title="Create a note">＋ New</button>
+    </header>
+    <div class="list-heading"><span>NOTES <span id="note-count">0</span></span><button id="refresh"
+        class="icon-button" title="Refresh notes" aria-label="Refresh notes">↻</button></div>
+    <nav id="note-list" aria-label="Notes"></nav>
+    <nav class="pagination" aria-label="Note pages">
+      <span id="page-number" aria-live="polite">Page 1</span>
+      <div class="page-actions">
+        <button id="previous-page" class="subtle" disabled>Previous</button>
+        <button id="next-page" class="subtle" disabled>Next</button>
+      </div>
+    </nav>
+    <div class="sidebar-footer"><span class="brand-mark">;</span>
+      <div>semicolon<span>A little space to write</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div class="note-heading">
+        <span class="slash">/</span><input id="title" aria-label="Note title" placeholder="untitled.md" maxlength="255"
+          disabled>
+      </div>
+      <div class="actions">
+        <div class="statusbar"><span id="save-status">Ready</span></div>
+        <div class="timestamps"><span>created at: <time id="created">—</time></span><span>updated at: <time
+              id="updated">—</time></span></div><button id="delete-note" class="icon-button" title="Delete note"
+          aria-label="Delete note" disabled><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7" />
+          </svg></button><button id="save" class="primary" disabled><span>Save</span></button>
+      </div>
+    </header>
+
+    <div id="notice" role="status" hidden><span id="notice-text"></span><button id="dismiss-notice"
+        aria-label="Dismiss notification">×</button></div>
+    <div class="mobile-tabs" role="group" aria-label="Editor view"><button data-view="editor"
+        aria-pressed="true">Editor</button><button data-view="preview" aria-pressed="false">Preview</button></div>
+    <section class="workspace" data-view="editor">
+      <div class="editor-pane">
+        <div class="pane-heading"><span><span class="cyan">≡</span></span>
+        </div><textarea id="editor" aria-label="Markdown content"
+          placeholder="Start writing your note here…" spellcheck="false" disabled></textarea>
+      </div>
+      <div class="preview-pane">
+        <div class="pane-heading"><span><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg> Preview</span>
+        </div>
+        <article id="preview" class="markdown" aria-label="Markdown preview"></article>
+      </div>
+      <div id="empty-state">
+        <div class="empty-symbol">;</div><span class="eyebrow">YOUR WORDS, WITH ROOM TO BREATHE</span>
+        <h1>A blank page.<br>Endless possibilities.</h1>
+        <p>Create a note and turn your thoughts into Markdown.<br>Write on the left. Watch it come to life on the right.
+        </p><button id="empty-new" class="primary">＋ Create your first note</button><span class="shortcut">⌘ / Ctrl + S
+          to save your work</span>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="confirm-dialog">
+    <form method="dialog"><span class="eyebrow">SEMICOLON</span>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-description"></p>
+      <div class="dialog-actions">
+          <button value="cancel" class="subtle">Cancel</button><button id="dialog-confirm"
+          value="confirm" class="primary">Continue</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+
+</html>
