@@ -1,13 +1,15 @@
 <div align="center">
-<a href="#" target="blank">
+<a href="https://stashingit.online/" target="blank">
     <img src="https://amazn-personal-blog.s3.us-east-1.amazonaws.com/favicon-96x96.png" width="96" alt="Logo"/>
 </a>
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?style=for-the-badge&logo=fastapi&logoColor=white)](#)
-![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
-
 <h2> semicolon - markdown editor </h2>
+
+[![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?style=for-the-badge&logo=fastapi&logoColor=white)](#)
+[![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)](#)
+
 </div>
+
 
 ## Funcionalidades
 
@@ -32,7 +34,7 @@ As bibliotecas estão incluídas em [`vendor/`](vendor/README.md), junto de suas
 
 ## Como executar
 
-Você precisa de um navegador moderno, um servidor de arquivos estáticos e do back-end compatível com o contrato descrito abaixo. Para o exemplo de servidor local, tenha o Python 3 instalado.
+Você precisa de um navegador moderno e do servidor back-end rodando.
 
 1. Inicie o back-end em `http://127.0.0.1:8000`.
 2. Acesse o arquivo [`index.html`](index.html)  no navegador.
@@ -69,9 +71,6 @@ Cada nota retornada deve conter os campos abaixo. Os valores são ilustrativos:
 }
 ```
 
-Na criação, o corpo JSON contém `title` e `content`. Na atualização, são enviados apenas os campos alterados. O título é obrigatório e o campo da interface permite até 255 caracteres.
-
-A listagem solicita seis registros para detectar a existência de uma próxima página, mas exibe apenas cinco. O parâmetro `skip` avança de cinco em cinco.
 
 ## Estrutura do projeto
 
